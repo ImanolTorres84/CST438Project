@@ -1,3 +1,9 @@
+## Warnings
+
+- If you commit directly to master and break stuff you will be tried or your crimes.
+- Master branch should be STABLE. Anyone can clone and have it working, dev can be broken.
+- Do not commit files that are side effects of compilation. The .gitignore should be respected.
+
 # Getting Started
 
 Install the following:
@@ -11,12 +17,6 @@ Open this project in VSCode then open in devcontainer and you should be able to 
 If all works you should be able to open `http://localhost:3006` and see the website.
 
 *Having issues installing docker or getting it to run? Enable Hyper-V if your on windows*
-
-### Learn SvelteKit
-
-Watch all of these:
-
-https://www.youtube.com/watch?v=obmiLi3bhkQ&list=PLA9WiRZ-IS_zfHpxmztJQLeBISsQkh9-M
 
 ## Developing
 
