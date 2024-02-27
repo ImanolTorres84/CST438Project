@@ -1,0 +1,6 @@
+{
+    "name": "SvelteKit Development",
+    "dockerFile": "../Dockerfile",
+    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
+    "extensions": ["dbaeumer.vscode-eslint"],
+  }
