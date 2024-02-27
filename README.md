@@ -1,6 +1,6 @@
 # PawsConnect
 
-Open this project in the devcontainer and you should be able to run `npm install` then `npm run dev` to start work.
+Open this project in the devcontainer and you should be able to run `npm install` then `npm run dev` to start work. You need to install docker for this. Please download it here: https://www.docker.com/products/docker-desktop/
 
 ## Developing
 
