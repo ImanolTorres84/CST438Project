@@ -1,6 +1,14 @@
-# PawsConnect
+# Getting Started
 
-Open this project in the devcontainer and you should be able to run `npm install` then `npm run dev` to start work. You need to install docker for this. Please download it here: https://www.docker.com/products/docker-desktop/
+Install the following:
+
+- Docker https://www.docker.com/products/docker-desktop/
+- Visual Studio Code https://code.visualstudio.com/
+- Git https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
+
+Open this project in VSCode then open in devcontainer and you should be able to run `npm install` then `npm run dev` to start work. 
+
+If all works you should be able to open `http://localhost:3006` and see the website.
 
 ## Developing
 
