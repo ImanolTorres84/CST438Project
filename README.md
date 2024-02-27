@@ -12,6 +12,12 @@ If all works you should be able to open `http://localhost:3006` and see the webs
 
 *Having issues installing docker or getting it to run? Enable Hyper-V if your on windows*
 
+### Learn SvelteKit
+
+Watch all of these:
+
+https://www.youtube.com/watch?v=obmiLi3bhkQ&list=PLA9WiRZ-IS_zfHpxmztJQLeBISsQkh9-M
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
