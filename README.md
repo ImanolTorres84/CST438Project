@@ -1,6 +1,6 @@
 ## Warnings
 
-- If you commit directly to master and break stuff you will be tried or your crimes.
+- If you commit directly to master and break stuff you will be tried for your crimes.
 - Master branch should be STABLE. Anyone can clone and have it working, dev can be broken.
 - Do not commit files that are side effects of compilation. The .gitignore should be respected.
 
