@@ -10,6 +10,8 @@ Open this project in VSCode then open in devcontainer and you should be able to 
 
 If all works you should be able to open `http://localhost:3006` and see the website.
 
+*Having issues installing docker or getting it to run? Enable Hyper-V if your on windows*
+
 ## Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
