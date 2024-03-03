@@ -20,10 +20,14 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Initialize PostgreSQL and create a database and user
-RUN service postgresql start && \
-    su - postgres -c "psql -c \"CREATE USER pawsadmin WITH SUPERUSER PASSWORD 'pawspassword';\"" && \
-    su - postgres -c "psql -c \"CREATE DATABASE pawsconnect;\""
+# Copy the script to wait for PostgreSQL
+COPY wait-for-postgres.sh /usr/local/bin/wait-for-postgres.sh
+RUN chmod +x /usr/local/bin/wait-for-postgres.sh
 
-# Drop into a shell
-CMD ["/bin/bash"]
+# Initialize PostgreSQL and create a database and user
+CMD ["wait-for-postgres.sh", "service", "postgresql", "start", "&&", \
+    "su", "-", "postgres", "-c", "psql -c \"CREATE USER pawsadmin WITH SUPERUSER PASSWORD 'pawspassword';\"", \
+    "&&", \
+    "su", "-", "postgres", "-c", "psql -c \"CREATE DATABASE pawsconnect;\"", \
+    "&&", \
+    "/bin/bash"]

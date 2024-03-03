@@ -1,4 +1,4 @@
-## Warnings
+# Warnings
 
 - If you commit directly to master and break stuff you will be tried for your crimes.
 - Master branch should be STABLE. Anyone can clone and have it working, dev can be broken.
@@ -12,21 +12,37 @@ Install the following:
 - Visual Studio Code https://code.visualstudio.com/
 - Git https://git-scm.com/book/en/v2/Getting-Started-Installing-Git
 
-Open this project in VSCode then open in devcontainer and you should be able to run `npm install` then `npm run dev` to start work. 
+Learn the following:
 
-If all works you should be able to open `http://localhost:3006` and see the website.
-
-*Having issues installing docker or getting it to run? Enable Hyper-V if your on windows*
+- intro to dev containers - https://www.youtube.com/watch?v=b1RavPr_878
+- intro to svelte(kit) - https://www.youtube.com/watch?v=yG2UlXr9k9Q
+- skeleton ui - https://www.skeleton.dev/
+- tailwind - https://www.youtube.com/watch?v=mr15Xzb1Ook
+- prisma - https://www.youtube.com/watch?v=rLRIB6AF2Dg
+- argon2 - https://www.npmjs.com/package/argon2
 
 ### Developing
 
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+- Open the project in visual studio code then open it as a dev container.
+- Let the dev container build, this might take some time.
+
+Now run the following commands:
 
 ```bash
+# Start the postgres database.
+service postgresql start
+service postgresql status # check to make sure its running!
+# install all npm deps
+npm install
+# generate the sql from the prisma file(s).
+npx prisma generate
+# create the tables in the database.
+npx prisma db push
+# Start the development server
 npm run dev
 ```
 
-However you also need to setup the database!
+You should be able to go to `http://localhost:3006` if everything works.
 
 ### Database
 
@@ -34,28 +50,13 @@ We are using Prisma and Postgres for our database.
 
 - Username: `pawsadmin`
 - Password: `pawspassword`
+- Database: `pawsconnect`
 
-#### Prisma
+##### Prisma
 
 Prisma is an ORM that allows us to define schemas without writing any SQL. You can see examples of prisma here: https://playground.prisma.io/examples/reading/find/find-all?path=examples&host=playground.prisma.io
 
-You will only be able to interface with the database if you are running inside of the dev container! Please run the following command to setup the database:
-
-```
-# Start the postgres database.
-service postgresql start
-service postgresql status # check to make sure its running!
-# generate the sql from the prisma file(s).
-npx prisma generate
-# create the tables in the database.
-npx prisma db push
-```
-
-You should be good to go and start programming with the database now.
-
-#### Password Hashing
-
-We are using argon2 to hash passwords: https://www.npmjs.com/package/argon2
+You will only be able to interface with the database if you are running inside of the dev container!
 
 ## Building
 
