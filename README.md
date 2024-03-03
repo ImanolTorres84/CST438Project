@@ -30,6 +30,10 @@ Learn the following:
 Now run the following commands:
 
 ```bash
+#
+# These commands only need to be run once when you build the dev container!!!
+#
+
 # Start the postgres database.
 service postgresql start
 service postgresql status # check to make sure its running!
@@ -45,6 +49,11 @@ exit
 npm install
 # create the tables in the database.
 npx -y prisma db push
+```
+
+This is the only command you need to run from the terminal from now on:
+
+```bash
 # Start the development server
 npm run dev
 ```

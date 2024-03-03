@@ -5,6 +5,11 @@ EXPOSE 3006
 # Expose port 5432 for PostgreSQL
 EXPOSE 5432
 
+# Move all files into the dev container
+# This is major speed increase.
+WORKDIR /workspace
+COPY . /workspace
+
 # Install PostgreSQL
 RUN apt-get update && \
     apt-get install -y postgresql postgresql-contrib && \

@@ -1,7 +1,6 @@
 {
     "name": "SvelteKit Development",
     "dockerFile": "../Dockerfile",
-    "workspaceMount": "source=${localWorkspaceFolder},target=/workspace,type=bind,consistency=cached",
     "workspaceFolder": "/workspace",
     "extensions": [
         "svelte.svelte-vscode",
