@@ -26,6 +26,23 @@ Once you've created a project and installed dependencies with `npm install` (or 
 npm run dev
 ```
 
+### Database
+
+We are using Prisma and Postgres for our database. 
+
+- Username: `pawsadmin`
+- Password: `pawspassword`
+
+#### Prisma
+
+Prisma is an ORM that allows us to define schemas without writing any SQL. You can see examples of prisma here: https://playground.prisma.io/examples/reading/find/find-all?path=examples&host=playground.prisma.io
+
+You will only be able to interface with the database if you are running inside of the dev container!
+
+#### Password Hashing
+
+We are using argon2 to hash passwords: https://www.npmjs.com/package/argon2
+
 ## Building
 
 To create a production version of your app:
