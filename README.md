@@ -33,12 +33,18 @@ Now run the following commands:
 # Start the postgres database.
 service postgresql start
 service postgresql status # check to make sure its running!
-# install all npm deps
+# switch to postgres account
+su postgres
+# create user
+psql -c "CREATE USER pawsadmin WITH SUPERUSER PASSWORD 'pawspassword'";
+# create database, this takes a few seconds
+psql -c "CREATE DATABASE pawsconnect";
+# back to root
+exit
+# install deps
 npm install
-# generate the sql from the prisma file(s).
-npx prisma generate
 # create the tables in the database.
-npx prisma db push
+npx -y prisma db push
 # Start the development server
 npm run dev
 ```

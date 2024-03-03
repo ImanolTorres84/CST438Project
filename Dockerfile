@@ -17,13 +17,8 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
-# Initialize PostgreSQL and create a database and user
-RUN service postgresql start && \
-    su - postgres -c "psql -c \"CREATE USER pawsadmin WITH SUPERUSER PASSWORD 'pawspassword';\"" && \
-    su - postgres -c "psql -c \"CREATE DATABASE pawsconnect;\""
+# generate prisma files
+RUN npx -y prisma generate
 
 # Drop into a shell
-CMD ["/bin/bash"]
-    
-# Initialize PostgreSQL and create a database and user
 CMD ["/bin/bash"]
