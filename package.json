@@ -47,6 +47,9 @@
   "dependencies": {
     "@floating-ui/dom": "1.6.3",
     "@prisma/client": "^5.10.2",
-    "highlight.js": "11.9.0"
+    "highlight.js": "11.9.0",
+    "lucide-svelte": "^0.344.0",
+    "sveltekit-superforms": "^2.6.2",
+    "zod": "^3.22.4"
   }
 }
