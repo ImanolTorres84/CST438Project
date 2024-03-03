@@ -26,6 +26,13 @@ Once you've created a project and installed dependencies with `npm install` (or 
 npm run dev
 ```
 
+### Database
+
+We are using Postgres for our database. 
+
+- Username: `pawsadmin`
+- Password: `pawspassword`
+
 ## Building
 
 To create a production version of your app:
