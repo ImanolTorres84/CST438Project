@@ -18,13 +18,15 @@ If all works you should be able to open `http://localhost:3006` and see the webs
 
 *Having issues installing docker or getting it to run? Enable Hyper-V if your on windows*
 
-## Developing
+### Developing
 
 Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
 
 ```bash
 npm run dev
 ```
+
+However you also need to setup the database!
 
 ### Database
 
@@ -48,6 +50,8 @@ npx prisma generate
 # create the tables in the database.
 npx prisma db push
 ```
+
+You should be good to go and start programming with the database now.
 
 #### Password Hashing
 
