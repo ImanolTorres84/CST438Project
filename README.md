@@ -37,7 +37,17 @@ We are using Prisma and Postgres for our database.
 
 Prisma is an ORM that allows us to define schemas without writing any SQL. You can see examples of prisma here: https://playground.prisma.io/examples/reading/find/find-all?path=examples&host=playground.prisma.io
 
-You will only be able to interface with the database if you are running inside of the dev container!
+You will only be able to interface with the database if you are running inside of the dev container! Please run the following command to setup the database:
+
+```
+# Start the postgres database.
+service postgresql start
+service postgresql status # check to make sure its running!
+# generate the sql from the prisma file(s).
+npx prisma generate
+# create the tables in the database.
+npx prisma db push
+```
 
 #### Password Hashing
 
