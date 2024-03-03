@@ -15,6 +15,7 @@ Install the following:
 Learn the following:
 
 - intro to dev containers - https://www.youtube.com/watch?v=b1RavPr_878
+- more dev container stuff - https://code.visualstudio.com/docs/devcontainers/containers#_getting-started
 - intro to svelte(kit) - https://www.youtube.com/watch?v=yG2UlXr9k9Q
 - skeleton ui - https://www.skeleton.dev/
 - tailwind - https://www.youtube.com/watch?v=mr15Xzb1Ook
