@@ -54,11 +54,18 @@ npx -y prisma db push
 This is the only command you need to run from the terminal from now on:
 
 ```bash
+# Start postgresql
+service postgresql start
 # Start the development server
 npm run dev
 ```
 
-You should be able to go to `http://localhost:3006` if everything works.
+You should be able to go to `http://localhost:3006` if everything works. You can also inspect the database using prisma studio by running the following command:
+
+```bash
+# This will make another web server to view the database.
+npx prisma studio
+```
 
 ### Database
 
