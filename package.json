@@ -48,6 +48,7 @@
   "dependencies": {
     "@floating-ui/dom": "1.6.3",
     "@prisma/client": "^5.10.2",
+    "argon2": "^0.40.1",
     "highlight.js": "11.9.0",
     "lucide-svelte": "^0.344.0",
     "postgre": "^0.1.8",

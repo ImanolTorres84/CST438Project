@@ -82,7 +82,7 @@
 <!-- Page body container -->
 <div class="container h-full mx-auto flex justify-center items-center register-bg">
     <!-- Register Form -->
-    <form on:submit|preventDefault={register} method="POST" class="w-2/3 bg-surface-600 p-10 space-y-4 rounded-md max-w-lg">
+    <form method="POST" class="w-2/3 bg-surface-600 p-10 space-y-4 rounded-md max-w-lg">
         <center>
             <!-- Centering -->
             <CircleUserRound size={64} className="text-center"/>
@@ -92,12 +92,12 @@
         <!-- First Name Field -->
         <div class="mb-4">
             <label for="first-name" class="block text-sm font-semibold mb-1 text-dark">First Name</label>
-            <input id="first-name" name="first-name" type="text" placeholder="Enter your first name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <input id="first-name" name="firstname" type="text" placeholder="Enter your first name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Last Name Field -->
         <div class="mb-4">
             <label for="last-name" class="block text-sm font-semibold mb-1 text-dark">Last Name</label>
-            <input id="last-name" name="last-name" type="text" placeholder="Enter your last name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <input id="last-name" name="lastname" type="text" placeholder="Enter your last name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Email Field -->
         <div class="mb-4">
@@ -112,7 +112,7 @@
         <!-- Verify Password Field -->
         <div class="mb-6">
             <label for="verify-password" class="block text-sm font-semibold mb-1 text-dark">Verify Password</label>
-            <input id="verify-password" name="verify-password" type="password" placeholder="Re-enter your password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <input id="verify-password" name="verifypassword" type="password" placeholder="Re-enter your password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Register Button -->
         <button type="submit" class="w-full btn-register">Create Account</button>
