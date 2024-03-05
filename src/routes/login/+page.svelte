@@ -1,17 +1,13 @@
 <script>
     import { CircleUserRound } from 'lucide-svelte';
+    import { goto } from '$app/navigation';
+    import { onMount } from 'svelte';
+    export let form;
     let showSuccessMessage = false;
     let showError = false;
-
-    function login() {
-        // For demonstration purposes, assume login is successful after 2 seconds
-        setTimeout(() => {
-            showSuccessMessage = true;
-            setTimeout(() => {
-                window.location.href = '/manage';
-            }, 2000);
-        }, 2000);
-    }
+    onMount(() => {
+        if (form?.success) goto('/manage');
+     });
 </script>
 
 <style>
@@ -75,15 +71,15 @@
 <!-- Page body container -->
 <div class="container mx-auto flex justify-center items-center login-bg">
     <!-- Login Form -->
-    <form on:submit|preventDefault={login} class="w-full max-w-lg bg-white shadow-md rounded-lg p-8">
+    <form method="POST" class="w-full max-w-lg bg-white shadow-md rounded-lg p-8">
         <div class="text-center mb-8">
             <CircleUserRound size={64} class="text-primary mx-auto"/>
             <h1 class="text-2xl font-bold text-primary mt-4 text-dark">Login to Your Account</h1>
         </div>
         <!-- Username Field -->
         <div class="mb-4">
-            <label for="username" class="block text-sm font-semibold mb-2 text-dark">Username</label>
-            <input id="username" name="username" type="text" placeholder="Enter your username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <label for="email" class="block text-sm font-semibold mb-2 text-dark">Email</label>
+            <input id="email" name="email" type="text" placeholder="Enter your email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Password Field -->
         <div class="mb-6">
@@ -97,8 +93,4 @@
         <!-- Login Button -->
         <button type="submit" class="w-full btn-login">Login</button>
     </form>
-    <!-- Success Message -->
-    <div class="{`success-message ${showSuccessMessage ? 'show' : ''}`} fixed inset-x-0 bottom-0 mb-4 text-center w-full">
-        <p class="text-white">Login successful! You will be redirected.</p>
-    </div>
 </div>

@@ -1,24 +1,12 @@
 <script>
     // @ts-ignore
     import { CircleUserRound } from 'lucide-svelte';
+    export let form;
+    import { goto } from '$app/navigation';
     import { onMount } from 'svelte';
-
-    let showSuccessMessage = false;
-
-    // Function to simulate registration
-    function register() {
-        // Simulate registration process here
-        // For demonstration, we'll just show the success message and redirect after 2 seconds
-        showSuccessMessage = true;
-        setTimeout(() => {
-            window.location.href = '/login';
-        }, 2000);
-    }
-
-    // Hide the success message when the component mounts
     onMount(() => {
-        showSuccessMessage = false;
-    });
+        if (form?.success) goto('/login');
+     });
 </script>
 
 <style>
@@ -116,10 +104,6 @@
         </div>
         <!-- Register Button -->
         <button type="submit" class="w-full btn-register">Create Account</button>
-        <!-- Success Message -->
-        <div class="{`success-message ${showSuccessMessage ? 'show' : ''}`} fixed inset-x-0 bottom-0 mb-4 text-center w-full">
-            <p class="text-white">You have successfully registered! Redirecting to login page...</p>
-        </div>
         <!-- Link to Login -->
         <div class="text-center mt-4">
             <a href="/login" class="text-primary">Already have an account? Login here</a>

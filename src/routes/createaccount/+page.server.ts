@@ -1,4 +1,5 @@
 import type { Actions } from "$types";
+import { redirect } from '@sveltejs/kit';
 import * as argon2 from "argon2";
 import { prisma } from "$lib/server/prisma";
 interface RegisterInformation {
@@ -32,6 +33,7 @@ export const actions: Actions = {
               });
               
               console.log("Created user: ", user);
+              return { success: true }
         }
     }
 
