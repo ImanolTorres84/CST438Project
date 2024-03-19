@@ -14,36 +14,27 @@
         </center>
         <!-- Header -->
         <div class="text-center font-bold text-2xl mb-4">Create Account</div>
-        <!-- First Name Field -->
+        <!-- Username Field -->
         <div class="mb-4">
-            <label for="first-name" class="block text-sm font-semibold mb-1 text-dark">First Name</label>
-            <input id="first-name" name="firstname" type="text" placeholder="Enter your first name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
-        </div>
-        <!-- Last Name Field -->
-        <div class="mb-4">
-            <label for="last-name" class="block text-sm font-semibold mb-1 text-dark">Last Name</label>
-            <input id="last-name" name="lastname" type="text" placeholder="Enter your last name" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <label for="username" class="block text-sm font-semibold mb-1 text-dark">Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter your username" class="input" />
         </div>
         <!-- Email Field -->
         <div class="mb-4">
             <label for="email" class="block text-sm font-semibold mb-1 text-dark">Email Address</label>
-            <input id="email" name="email" type="text" placeholder="Enter your email address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <input id="email" name="email" type="text" placeholder="Enter your email address" class="input" />
         </div>
         <!-- Password Field -->
         <div class="mb-4">
             <label for="password" class="block text-sm font-semibold mb-1 text-dark">Password</label>
-            <input id="password" name="password" type="password" placeholder="Enter your password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <input id="password" name="password" type="password" placeholder="Enter your password" class="input" />
         </div>
         <!-- Verify Password Field -->
         <div class="mb-6">
             <label for="verify-password" class="block text-sm font-semibold mb-1 text-dark">Verify Password</label>
-            <input id="verify-password" name="verifypassword" type="password" placeholder="Re-enter your password" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <input id="verify-password" name="verifypassword" type="password" placeholder="Re-enter your password" class="input" />
         </div>
         <!-- Register Button -->
-        <button type="submit" class="w-full btn-register">Create Account</button>
-        <!-- Link to Login -->
-        <div class="text-center mt-4">
-            <a href="/login" class="text-primary">Already have an account? Login here</a>
-        </div>
+        <button type="submit" class="w-full btn variant-filled">Create Account</button>
     </form>
 </div>
