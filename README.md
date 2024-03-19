@@ -104,3 +104,7 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Protected Routes
+
+If you have a route which you dont want to be protected (aka require login) then go to `src/hooks.server.js` and add your route to the array `unProtectedRoutes`.
