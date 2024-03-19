@@ -78,8 +78,8 @@
         </div>
         <!-- Username Field -->
         <div class="mb-4">
-            <label for="email" class="block text-sm font-semibold mb-2 text-dark">Email</label>
-            <input id="email" name="email" type="text" placeholder="Enter your email" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
+            <label for="username" class="block text-sm font-semibold mb-2 text-dark">Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter your username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Password Field -->
         <div class="mb-6">

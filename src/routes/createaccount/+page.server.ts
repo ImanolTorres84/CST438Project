@@ -3,8 +3,7 @@ import { redirect } from '@sveltejs/kit';
 import * as argon2 from "argon2";
 import { prisma } from "$lib/server/prisma";
 interface RegisterInformation {
-    firstname: string,
-    lastname: string,
+    username: string,
     email: string,
     password: string
 }
@@ -19,13 +18,12 @@ export const actions: Actions = {
         // Already exists.
         const user = await prisma.user
             .findFirst({
-                where: { email: info.email },
+                where: { username: info.username },
             });
         if (!user) {
             const user = await prisma.user.create({
                 data: {
-                  firstname: info.firstname,
-                  lastname: info.lastname,
+                  username: info.username,
                   email: info.email,
                   passwordHash: await argon2.hash(info.password),
                   session: "",

@@ -4,7 +4,7 @@ import * as argon2 from "argon2";
 import { prisma } from "$lib/server/prisma";
 
 interface LoginInformation {
-    email: string,
+    username: string,
     password: string
 }
 
@@ -18,7 +18,7 @@ export const actions: Actions = {
         // Already exists.
         const user = await prisma.user
             .findFirst({
-                where: { email: info.email },
+                where: { username: info.username },
             });
         if (user && await argon2.verify(user.passwordHash, info.password)) {
             console.log("Successful login");
