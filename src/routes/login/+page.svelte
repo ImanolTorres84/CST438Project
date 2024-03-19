@@ -1,7 +1,6 @@
 <script lang="ts">
 	import { CircleUserRound } from 'lucide-svelte';
-	import { getToastStore, type ToastSettings } from '@skeletonlabs/skeleton';
-	import { SignIn, SignOut } from '@auth/sveltekit/components';
+	import { SignIn } from "@auth/sveltekit/components"
 	export let form;
 </script>
 
@@ -41,5 +40,10 @@
 		<hr class="!border-t-8 !border-double" />
 		<!-- Login Button -->
 		<button type="submit" class="w-full btn variant-filled">Login</button>
+		<SignIn provider="google">
+			<div slot="submitButton" class="buttonPrimary">
+				<button class="w-full btn variant-filled">Login with Google</button>
+			</div>
+		</SignIn>
 	</form>
 </div>

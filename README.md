@@ -108,3 +108,20 @@ You can preview the production build with `npm run preview`.
 ## Protected Routes
 
 If you have a route which you dont want to be protected (aka require login) then go to `src/hooks.server.js` and add your route to the array `unProtectedRoutes`.
+
+# Env
+
+You cannot use this framework without defining the following env vars:
+
+```
+DATABASE_URL="postgresql://[dbusername]:[dbpassword]@localhost:5432/pawsconnect"
+GOOGLE_CLIENT_ID=[fill this in yourself]
+GOOGLE_CLIENT_SECRET=[fill this in yourself]
+AUTH_SECRET=[make this a random string, its required for authjs]
+```
+
+For google follow this page to get client id and client secret:
+
+https://developers.google.com/workspace/guides/create-credentials
+
+DO NOT USE YOUR SCHOOL EMAIL!

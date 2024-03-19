@@ -1,6 +1,7 @@
 <script>
     // @ts-ignore
     import { CircleUserRound } from 'lucide-svelte';
+    import { SignIn } from "@auth/sveltekit/components"
     export let form;
 </script>
 
@@ -48,5 +49,10 @@
         </div>
         <!-- Register Button -->
         <button type="submit" class="w-full btn variant-filled">Create Account</button>
+        <SignIn provider="google">
+			<div slot="submitButton" class="buttonPrimary">
+				<button class="w-full btn variant-filled">Register with Google</button>
+			</div>
+		</SignIn>
     </form>
 </div>
