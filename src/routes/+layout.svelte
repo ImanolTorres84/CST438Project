@@ -30,7 +30,7 @@
             </svelte:fragment>
             <svelte:fragment slot="trail">
                 <a href="/createaccount" class="text-white uppercase">Create Account</a>
-                <a href="/login" class="text-white uppercase ml-4">Login</a> <!-- Added Login button -->
+                <a href="/login" class="text-white uppercase ml-4">Login</a>
             </svelte:fragment>
         </AppBar>
     </svelte:fragment>

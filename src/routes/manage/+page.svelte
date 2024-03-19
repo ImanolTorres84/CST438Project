@@ -1,90 +1,124 @@
-<!DOCTYPE html>
-<html lang="en">
+<script>
+    // @ts-ignore
+    import { CircleUserRound, Image } from 'lucide-svelte';
+    import { onMount } from 'svelte';
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Manage Your Information</title>
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-</head>
+    let user = {
+        username: "JohnDoe",
+        email: "johndoe@example.com",
+        location: "New York",
+        age: 30, // Adding age field
+        profilePicture: "https://via.placeholder.com/150"
+    };
 
-<body class="bg-gray-100 flex justify-center items-center h-screen bg-cover bg-fixed bg-center"
-    style="background-image: url('https://t3.ftcdn.net/jpg/00/85/32/68/360_F_85326806_k3nKFfDnL7BKZZpgplibILjssleez7za.jpg');">
-    <div class="container mx-auto overflow-y-auto scrollbar-w-2 scrollbar-track-gray-200 scrollbar-thumb-gray-500">
-        <div class="space-y-10 text-center flex flex-col items-center">
-            <h1 class="text-4xl font-bold text-black">MANAGE PROFILE</h1>
-            <div class="w-full md:w-2/3 lg:w-1/2">
-                <div class="bg-black text-white p-8 rounded-lg shadow-md card hover:bg-blue-200">
-                    <h2 class="text-2xl font-semibold text-primary mb-4">Update Your Personal Info</h2>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Your Name</p>
-                            <input type="text"
-                                class="border border-primary focus:outline-none text-lg text-gray-700 font-semibold px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Email Address</p>
-                            <input type="email"
-                                class="border border-primary focus:outline-none text-lg text-gray-700 font-semibold px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Profile Picture</p>
-                            <input type="file" accept=".jpg, .jpeg, .png"
-                                class="focus:outline-none px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Current Location</p>
-                            <input type="text"
-                                class="border border-primary focus:outline-none text-lg text-gray-700 font-semibold px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <button
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition-all duration-300">Save</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-black text-white p-8 rounded-lg shadow-md mt-8 card hover:bg-blue-200">
-                    <h2 class="text-2xl font-semibold text-primary mb-4">Update Your Pet's Info</h2>
-                    <div class="space-y-4">
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Pet's Name</p>
-                            <input type="text"
-                                class="border border-primary focus:outline-none text-lg text-gray-700 font-semibold px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Pet's Profile Picture</p>
-                            <input type="file" accept=".jpg, .jpeg, .png"
-                                class="focus:outline-none px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Description</p>
-                            <input type="text"
-                                class="border border-primary focus:outline-none text-lg text-gray-700 font-semibold px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Pet's Breed</p>
-                            <input type="text"
-                                class="border border-primary focus:outline-none text-lg text-gray-700 font-semibold px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Pet's Color</p>
-                            <input type="color"
-                                class="focus:outline-none px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex items-center">
-                            <p class="text-lg text-primary mr-4">Pet's Age</p>
-                            <input type="number"
-                                class="border border-primary focus:outline-none text-lg text-gray-700 font-semibold px-4 py-2 rounded-full transition-all duration-300">
-                        </div>
-                        <div class="flex justify-center">
-                            <button
-                                class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline transition-all duration-300">Save</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
+    function changeProfilePicture(event) {
+        const file = event.target.files[0];
+        const reader = new FileReader();
+        
+        reader.onloadend = () => {
+            user = {...user, profilePicture: reader.result}; // Update the user object
+        };
+        
+        if (file) {
+            reader.readAsDataURL(file);
+        }
+    }
+
+    onMount(() => {
+        // Code to fetch user data from backend
+    });
+</script>
+
+<style>
+    /* Adjust button color for better visibility */
+    .btn-save {
+        background-color: #4CAF50; /* Green */
+        border: none;
+        color: white;
+        padding: 10px 24px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        transition-duration: 0.4s;
+        cursor: pointer;
+        border-radius: 8px;
+    }
+
+    .btn-save:hover {
+        background-color: #45a049; /* Darker Green */
+    }
+
+    /* Adjust text color for better visibility */
+    .text-dark {
+        color: #333; /* Dark Grey */
+    }
+
+    /* Adjust text color for input fields */
+    input[type="text"] {
+        color: #333; /* Dark Grey */
+    }
+
+    /* Styling for profile picture */
+    .profile-picture {
+        width: 150px;
+        height: 150px;
+        border-radius: 50%;
+        object-fit: cover;
+    }
+
+    /* Styling for image upload button */
+    .image-upload-button {
+        display: none; /* Hide by default */
+    }
+
+    /* Style for the manage profile heading */
+    .manage-profile-heading {
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        text-align: center; /* Center align */
+    }
+</style>
+
+<!-- Manage Profile Heading -->
+<h1 class="text-2xl font-bold mb-4 text-light manage-profile-heading">Manage Profile</h1>
+
+<!-- Page body container -->
+<div class="container h-full mx-auto flex justify-center items-center register-bg">
+    <!-- Manage Profile Form -->
+    <form class="w-2/3 bg-surface-600 p-10 space-y-4 rounded-md max-w-lg">
+        <!-- Profile Picture -->
+        <center>
+            <label for="profile-image" class="cursor-pointer">
+                <Image src={user.profilePicture} alt="Profile Picture" class="profile-picture" />
+                <input id="profile-image" type="file" class="image-upload-button" onchange={changeProfilePicture} />
+            </label>
+        </center>
+        
+        <!-- Username Field -->
+        <div class="mb-4">
+            <label for="username" class="block text-sm font-semibold mb-1 text-light">Username</label>
+            <input id="username" name="username" type="text" placeholder="Enter your username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.username} />
         </div>
-    </div>
-</body>
-
-</html>
+        <!-- Email Field -->
+        <div class="mb-4">
+            <label for="email" class="block text-sm font-semibold mb-1 text-light">Email Address</label>
+            <input id="email" name="email" type="text" placeholder="Enter your email address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.email} />
+        </div>
+        <!-- Location Field -->
+        <div class="mb-4">
+            <label for="location" class="block text-sm font-semibold mb-1 text-light">Location</label>
+            <input id="location" name="location" type="text" placeholder="Enter your location" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.location} />
+        </div>
+        <!-- Age Field -->
+        <div class="mb-4">
+            <label for="age" class="block text-sm font-semibold mb-1 text-light">Age</label>
+            <input id="age" name="age" type="number" placeholder="Enter your age" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.age} />
+        </div>
+        <!-- Save Button -->
+        <button type="button" class="w-full btn-save">Save</button>
+    </form>
+</div>
