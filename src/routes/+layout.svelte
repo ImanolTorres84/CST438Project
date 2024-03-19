@@ -17,7 +17,7 @@
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('typescript', typescript);
     storeHighlightJs.set(hljs);
-    
+
     // Floating UI for Popups
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
@@ -31,7 +31,7 @@
                 <strong class="text-xl uppercase">PawsConnect</strong>
             </svelte:fragment>
             <svelte:fragment slot="trail">
-                <a href="/createaccount" class="text-white uppercase">Create Account</a>
+                <a href="/register" class="text-white uppercase">Register</a>
                 <a href="/login" class="text-white uppercase ml-4">Login</a> <!-- Added Login button -->
             </svelte:fragment>
         </AppBar>

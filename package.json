@@ -55,6 +55,7 @@
     "postgre": "^0.1.8",
     "postgresql": "^0.0.1",
     "sveltekit-superforms": "^2.6.2",
+    "uuid": "^9.0.1",
     "zod": "^3.22.4"
   }
 }
