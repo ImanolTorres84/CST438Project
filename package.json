@@ -47,6 +47,7 @@
   "type": "module",
   "dependencies": {
     "@floating-ui/dom": "1.6.3",
+    "@magidoc/plugin-svelte-marked": "^4.1.4",
     "@prisma/client": "^5.10.2",
     "argon2": "^0.40.1",
     "highlight.js": "11.9.0",

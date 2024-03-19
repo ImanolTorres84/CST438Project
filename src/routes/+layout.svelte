@@ -9,15 +9,16 @@
     import css from 'highlight.js/lib/languages/css';
     import javascript from 'highlight.js/lib/languages/javascript';
     import typescript from 'highlight.js/lib/languages/typescript';
-    
+    import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+    import { storePopup } from '@skeletonlabs/skeleton';
+
     hljs.registerLanguage('xml', xml); // for HTML
     hljs.registerLanguage('css', css);
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('typescript', typescript);
     storeHighlightJs.set(hljs);
+    
     // Floating UI for Popups
-    import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-    import { storePopup } from '@skeletonlabs/skeleton';
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
