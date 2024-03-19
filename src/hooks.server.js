@@ -1,20 +1,17 @@
 import { redirect } from '@sveltejs/kit';
 import { prisma } from "$lib/server/prisma";
-import { SvelteKitAuth } from "@auth/sveltekit";
-import Google from "@auth/sveltekit/providers/google";
-import { GOOGLE_CLIENT_ID, GOOGLE_CLIENT_SECRET } from "$env/static/private";
-
-export const auth = SvelteKitAuth({
-    providers: [
-        Google({
-            clientId: GOOGLE_CLIENT_ID,
-            clientSecret: GOOGLE_CLIENT_SECRET
-        })
-    ]
-});
+import { auth } from "./auth";
 
 // Unprotected routes go here!
-const unProtectedRoutes = ['/', '/login', '/register', '/auth/callback/google', '/auth'];
+const unProtectedRoutes = [
+    '/', 
+    '/login', 
+    '/register', 
+    '/auth/callback/google',
+    '/auth',
+    '/signin',
+    '/signout'
+];
 
 export const handle = async ({ event, request, resolve }) => {
     if (unProtectedRoutes.includes(event.url.pathname)) {
