@@ -1,0 +1,14 @@
+{
+    "name": "SvelteKit Development",
+    "dockerFile": "../Dockerfile",
+    "workspaceFolder": "/workspace",
+    "extensions": [
+        "svelte.svelte-vscode",
+        "dbaeumer.vscode-eslint",
+        "ms-azuretools.vscode-docker",
+        "eamodio.gitlens",
+        "prisma.prisma",
+        "ms-vscode.vscode-typescript-tslint-plugin",
+        "ms-azuretools.vscode-docker"
+      ],
+}
