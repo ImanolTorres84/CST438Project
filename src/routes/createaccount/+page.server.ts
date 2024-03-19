@@ -1,12 +1,15 @@
 import type { Actions } from "$types";
 import * as argon2 from "argon2";
 import { prisma } from "$lib/server/prisma";
+import { redirect } from '@sveltejs/kit';
+
 interface RegisterInformation {
     firstname: string,
     lastname: string,
     email: string,
     password: string
 }
+
 export const actions: Actions = {
     default: async ({ request }) => {
         const info = Object.fromEntries(await request.formData()) as RegisterInformation;
@@ -20,6 +23,7 @@ export const actions: Actions = {
             .findFirst({
                 where: { email: info.email },
             });
+
         if (!user) {
             const user = await prisma.user.create({
                 data: {
@@ -30,9 +34,9 @@ export const actions: Actions = {
                   session: "",
                 },
               });
-              
+
               console.log("Created user: ", user);
+              throw redirect(303, "/login");
         }
     }
-
 };

@@ -81,6 +81,18 @@ Prisma is an ORM that allows us to define schemas without writing any SQL. You c
 
 You will only be able to interface with the database if you are running inside of the dev container!
 
+##### Prisma Migrations
+
+Every single time you change `prisma/schema.prisma` you need to run the following commands to run migrations.
+
+```bash
+# Generates the Postgresql
+npx prisma migrate dev --name "init"
+
+# Generates the Typescript
+npx -y prisma generate
+```
+
 ## Building
 
 To create a production version of your app:
