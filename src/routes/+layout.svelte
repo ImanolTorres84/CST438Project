@@ -11,7 +11,9 @@
     import typescript from 'highlight.js/lib/languages/typescript';
     import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
     import { storePopup } from '@skeletonlabs/skeleton';
+    import { initializeStores } from '@skeletonlabs/skeleton';
 
+    initializeStores();
     hljs.registerLanguage('xml', xml); // for HTML
     hljs.registerLanguage('css', css);
     hljs.registerLanguage('javascript', javascript);
