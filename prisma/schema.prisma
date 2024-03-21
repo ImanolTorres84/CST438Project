@@ -21,3 +21,12 @@ model User {
   passwordHash String
   session String 
 }
+
+model  Post {
+  id        Int     @id @default(autoincrement())
+  username String
+  title     String
+  content   String
+  published Boolean @default(false)
+  createdate DateTime @default(now())
+}

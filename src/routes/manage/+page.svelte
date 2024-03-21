@@ -116,7 +116,7 @@
         <!-- Age Field -->
         <div class="mb-4">
             <label for="age" class="block text-sm font-semibold mb-1 text-light">Age</label>
-            <input id="age" name="age" type="number" placeholder="Enter your age" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.age} />
+            <input id="age" name="age" type="number" placeholder="Enter your age" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.age} style="color: black;" />
         </div>
         <!-- Save Button -->
         <button type="button" class="w-full btn-save">Save</button>
