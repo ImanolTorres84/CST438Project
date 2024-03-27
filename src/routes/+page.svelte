@@ -9,6 +9,7 @@
       <div class="buttons">
           <a href="/createaccount" class="btn btn-primary">Create Account</a>
           <a href="/login" class="btn btn-secondary">Login</a>
+          <a href="/createpost" class="btn btn-secondary">Creat post</a>
       </div>
   </div>
 </div>

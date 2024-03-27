@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -22,7 +22,7 @@ model User {
   passwordHash String 
   passwordSalt String
   session String 
-=======
+
 // This is your Prisma schema file,
 // learn more about it in the docs: https://pris.ly/d/prisma-schema
 
@@ -45,5 +45,16 @@ model User {
   email    String   @unique
   passwordHash String
   session String 
->>>>>>> usernamechange
+
+}
+
+}
+
+model  Post {
+  id        Int     @id @default(autoincrement())
+  username String
+  title     String
+  content   String
+  published Boolean @default(false)
+  createdate DateTime @default(now())
 }
