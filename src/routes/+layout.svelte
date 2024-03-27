@@ -9,14 +9,18 @@
     import css from 'highlight.js/lib/languages/css';
     import javascript from 'highlight.js/lib/languages/javascript';
     import typescript from 'highlight.js/lib/languages/typescript';
+    import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
+    import { storePopup } from '@skeletonlabs/skeleton';
+    import { initializeStores } from '@skeletonlabs/skeleton';
+
+    initializeStores();
     hljs.registerLanguage('xml', xml); // for HTML
     hljs.registerLanguage('css', css);
     hljs.registerLanguage('javascript', javascript);
     hljs.registerLanguage('typescript', typescript);
     storeHighlightJs.set(hljs);
+
     // Floating UI for Popups
-    import { computePosition, autoUpdate, flip, shift, offset, arrow } from '@floating-ui/dom';
-    import { storePopup } from '@skeletonlabs/skeleton';
     storePopup.set({ computePosition, autoUpdate, flip, shift, offset, arrow });
 </script>
 
@@ -29,8 +33,8 @@
                 <strong class="text-xl uppercase">PawsConnect</strong>
             </svelte:fragment>
             <svelte:fragment slot="trail">
-                <a href="/createaccount" class="text-white uppercase">Create Account</a>
-                <a href="/login" class="text-white uppercase ml-4">Login</a>
+                <a href="/register" class="text-white uppercase">Register</a>
+                <a href="/login" class="text-white uppercase ml-4">Login</a> <!-- Added Login button -->
             </svelte:fragment>
         </AppBar>
     </svelte:fragment>

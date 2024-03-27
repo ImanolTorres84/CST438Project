@@ -81,6 +81,18 @@ Prisma is an ORM that allows us to define schemas without writing any SQL. You c
 
 You will only be able to interface with the database if you are running inside of the dev container!
 
+##### Prisma Migrations
+
+Every single time you change `prisma/schema.prisma` you need to run the following commands to run migrations.
+
+```bash
+# Generates the Postgresql
+npx prisma migrate dev --name "init"
+
+# Generates the Typescript
+npx -y prisma generate
+```
+
 ## Building
 
 To create a production version of your app:
@@ -92,3 +104,24 @@ npm run build
 You can preview the production build with `npm run preview`.
 
 > To deploy your app, you may need to install an [adapter](https://kit.svelte.dev/docs/adapters) for your target environment.
+
+## Protected Routes
+
+If you have a route which you dont want to be protected (aka require login) then go to `src/hooks.server.js` and add your route to the array `unProtectedRoutes`.
+
+# Env
+
+You cannot use this framework without defining the following env vars:
+
+```
+DATABASE_URL="postgresql://[dbusername]:[dbpassword]@localhost:5432/pawsconnect"
+GOOGLE_CLIENT_ID=[fill this in yourself]
+GOOGLE_CLIENT_SECRET=[fill this in yourself]
+AUTH_SECRET=[make this a random string, its required for authjs]
+```
+
+For google follow this page to get client id and client secret:
+
+https://developers.google.com/workspace/guides/create-credentials
+
+DO NOT USE YOUR SCHOOL EMAIL!
