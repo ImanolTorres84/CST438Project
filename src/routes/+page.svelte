@@ -7,7 +7,7 @@
       <h1>Welcome to PawsConnect</h1>
       <p>Connect with fellow pet lovers, share experiences, and celebrate your furry friends!</p>
       <div class="buttons">
-          <a href="/createaccount" class="btn btn-primary">Create Account</a>
+          <a href="/register" class="btn btn-primary">Register</a>
           <a href="/login" class="btn btn-secondary">Login</a>
           <a href="/createpost" class="btn btn-secondary">Creat post</a>
       </div>

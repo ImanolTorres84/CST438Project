@@ -5,18 +5,10 @@ import { prisma } from "$lib/server/prisma";
 import { z, ZodError } from 'zod';
 import { v4 as uuidv4 } from 'uuid';
 
-const registerSchema = z
+const loginSchema = z
     .object({
-        username: z
-            .string({ required_error: 'Username is required' })
-            .min(1, { message: 'Username must be at least 1 character' })
-            .max(64, { message: 'Username must be less than 64 characters' })
-            .trim(),
-        password: z
-            .string({ required_error: 'Password is required' })
-            .min(6, { message: 'Password must be at least 6 characters' })
-            .max(32, { message: 'Password must be less than 32 characters' })
-            .trim(),
+        username: z.string({ required_error: 'Username is required' }),
+        password: z.string({ required_error: 'Password is required' })
     });
 
 interface LoginInfo {
@@ -29,7 +21,7 @@ export const actions: Actions = {
         const info = Object.fromEntries(await request.formData()) as LoginInfo;
         try {
             // Validate the form data
-            registerSchema.parse(info); 
+            loginSchema.parse(info); 
         } catch (err) { // Catch any errors.
             if (err instanceof ZodError) {
                 const errors = {} as Record<string, string>;
@@ -50,20 +42,27 @@ export const actions: Actions = {
         });
 
         if (user) {
-            if (await argon2.hash(info.password + user.passwordSalt) != user.passwordHash) {
+            if (await argon2.verify(user.passwordHash, info.password + user.passwordSalt)) {
+                const session = uuidv4();
+                cookies.set('session', session, {
+                    path: '/',
+                    httpOnly: true,
+                    sameSite: 'strict',
+                    secure: false,
+                    maxAge: 60 * 60 * 24 * 7 // one week
+                });
+                return {
+                    status: 303,
+                    headers: {
+                        location: "/account" // Redirect to the account page
+                    },
+                    body: null // Ensure no body content is sent
+                };
+            } else {
                 return {
                     error: "Invalid username or password!"
                 };
             }
-            const session = uuidv4();
-            cookies.set('session', session, {
-                path: '/',
-                httpOnly: true,
-                sameSite: 'strict',
-                secure: false,
-                maxAge: 60 * 60 * 24 * 7 // one week
-            });
-            redirect(303, "/account");
         } else {
             return {
                 error: "Invalid username or password!"
