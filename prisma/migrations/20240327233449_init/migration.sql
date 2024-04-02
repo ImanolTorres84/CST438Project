@@ -11,10 +11,7 @@ CREATE TABLE "User" (
 );
 
 -- CreateIndex
-<<<<<<<< HEAD:prisma/migrations/20240319055822_init/migration.sql
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
 -- CreateIndex
-========
->>>>>>>> usernamechange:prisma/migrations/20240319031749_updated_username_in_database/migration.sql
 CREATE UNIQUE INDEX "User_email_key" ON "User"("email");
