@@ -102,7 +102,7 @@ export const actions: Actions = {
                 maxAge: 60 * 60 * 24 * 7 // one week
             });
 
-            redirect(303, "/account");
+            return redirect(303, '/account');
         } else {
             return {
                 errors: {
