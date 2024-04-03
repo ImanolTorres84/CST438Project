@@ -22,7 +22,6 @@ model User {
   passwordHash String 
   passwordSalt String
   session String 
-<<<<<<< HEAD
 }
 
 model  Post {
@@ -32,8 +31,6 @@ model  Post {
   content   String
   published Boolean @default(false)
   createdate DateTime @default(now())
-=======
->>>>>>> 4514fed78c37fa6824c094cc5cdf9b6499fa871f
 }
 
 model pet {

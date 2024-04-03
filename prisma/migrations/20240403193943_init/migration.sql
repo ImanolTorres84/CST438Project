@@ -22,6 +22,17 @@ CREATE TABLE "Post" (
     CONSTRAINT "Post_pkey" PRIMARY KEY ("id")
 );
 
+-- CreateTable
+CREATE TABLE "pet" (
+    "id" SERIAL NOT NULL,
+    "name" TEXT NOT NULL,
+    "age" DOUBLE PRECISION NOT NULL,
+    "owner" TEXT NOT NULL,
+    "breed" TEXT NOT NULL,
+
+    CONSTRAINT "pet_pkey" PRIMARY KEY ("id")
+);
+
 -- CreateIndex
 CREATE UNIQUE INDEX "User_username_key" ON "User"("username");
 
