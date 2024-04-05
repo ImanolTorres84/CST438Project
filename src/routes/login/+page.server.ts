@@ -51,13 +51,11 @@ export const actions: Actions = {
                     secure: false,
                     maxAge: 60 * 60 * 24 * 7 // one week
                 });
-                return {
-                    status: 303,
-                    headers: {
-                        location: "/account" // Redirect to the account page
-                    },
-                    body: null // Ensure no body content is sent
-                };
+                await prisma.user.update({
+                    where: { username: info.username },
+                    data: {session}
+                  });
+                return redirect(303, '/account');
             } else {
                 return {
                     error: "Invalid username or password!"

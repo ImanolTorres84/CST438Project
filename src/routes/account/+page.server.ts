@@ -1,6 +1,12 @@
-import type { Actions } from "$types";
+import type { Actions, PageServerLoad } from "$types";
 import { prisma } from "$lib/server/prisma";
+import type { User } from "lucide-svelte";
+import { userInfo } from "os";
 
+interface UserInfo {
+    username: string,
+    email: string,
+}
 export const actions: Actions = {
     updateProfile: async ({ request }) => {
         const formData = Object.fromEntries(await request.formData());
@@ -21,3 +27,13 @@ export const actions: Actions = {
         }
     }
 };
+export const load = (async ({ cookies }) => {
+    const sessionid = cookies.get('sessionid');
+   const user = await prisma.user.findFirst({
+        where: {
+            session: sessionid
+        }
+    });
+    console.log(user);
+    // return UserInfo{username: user?.username, email: user?.email};
+  }) satisfies PageServerLoad;

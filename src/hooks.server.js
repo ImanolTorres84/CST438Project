@@ -36,8 +36,11 @@ export const handle = async ({ event, request, resolve }) => {
             };
         } else {
             if (!unProtectedRoutes.includes(event.url.pathname)) {
+                console.log("Hellow2");
                 throw redirect(303, '/');
             }
         }
+
+        return await resolve(event);
     }
 };
