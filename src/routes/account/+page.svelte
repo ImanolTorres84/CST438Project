@@ -3,20 +3,14 @@
     import { CircleUserRound, Image } from 'lucide-svelte';
     import { onMount } from 'svelte';
 
-    let user = {
-        username: "JohnDoe",
-        email: "johndoe@example.com",
-        location: "New York",
-        age: 30, // Adding age field
-        profilePicture: "https://via.placeholder.com/150"
-    };
-
     function changeProfilePicture(event) {
         const file = event.target.files[0];
         const reader = new FileReader();
         
         reader.onloadend = () => {
-            user = {...user, profilePicture: reader.result}; // Update the user object
+            // Update the profile picture
+            const profilePicture = reader.result;
+            // Handle updating the profile picture
         };
         
         if (file) {
@@ -93,7 +87,7 @@
         <!-- Profile Picture -->
         <center>
             <label for="profile-image" class="cursor-pointer">
-                <Image src={user.profilePicture} alt="Profile Picture" class="profile-picture" />
+                <Image src="" alt="Profile Picture" class="profile-picture" />
                 <input id="profile-image" type="file" class="image-upload-button" onchange={changeProfilePicture} />
             </label>
         </center>
@@ -101,22 +95,22 @@
         <!-- Username Field -->
         <div class="mb-4">
             <label for="username" class="block text-sm font-semibold mb-1 text-light">Username</label>
-            <input id="username" name="username" type="text" placeholder="Enter your username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.username} />
+            <input id="username" name="username" type="text" placeholder="Enter your username" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Email Field -->
         <div class="mb-4">
             <label for="email" class="block text-sm font-semibold mb-1 text-light">Email Address</label>
-            <input id="email" name="email" type="text" placeholder="Enter your email address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.email} />
+            <input id="email" name="email" type="text" placeholder="Enter your email address" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Location Field -->
         <div class="mb-4">
             <label for="location" class="block text-sm font-semibold mb-1 text-light">Location</label>
-            <input id="location" name="location" type="text" placeholder="Enter your location" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.location} />
+            <input id="location" name="location" type="text" placeholder="Enter your location" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Age Field -->
         <div class="mb-4">
             <label for="age" class="block text-sm font-semibold mb-1 text-light">Age</label>
-            <input id="age" name="age" type="number" placeholder="Enter your age" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" bind:value={user.age} />
+            <input id="age" name="age" type="number" placeholder="Enter your age" class="w-full px-4 py-2 border rounded-lg focus:outline-none focus:border-primary" />
         </div>
         <!-- Save Button -->
         <button type="button" class="w-full btn-save">Save</button>
